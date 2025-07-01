@@ -39,7 +39,7 @@ func (u *User) Validate() error {
 
 // String returns a string representation of the user, formatted as "Name: <name>, Age: <age>, Email: <email>"
 func (u *User) String() string {
-	return "User{Name: " + u.Name + ", Age: " + strconv.Itoa(u.Age) + ", Email: " + u.Email + "}"
+	return "Name: " + u.Name + ", Age: " + strconv.Itoa(u.Age) + ", Email: " + u.Email
 }
 
 // NewUser creates a new user with validation, returns an error if the user is not valid

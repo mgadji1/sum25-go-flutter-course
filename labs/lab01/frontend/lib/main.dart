@@ -63,8 +63,7 @@ class MyHomePage extends StatelessWidget {
             Center(
               child: SingleChildScrollView(
                 padding: EdgeInsets.all(16.0),
-                // TODO: change to ProfileCard
-                child: ProfileCard(name: "name", email: "email@gmail.com", age: 20),
+                child: ProfileCard(name: "John Doe", email: "john@example.com", age: 30),
               ),
             ),
             CounterApp(),

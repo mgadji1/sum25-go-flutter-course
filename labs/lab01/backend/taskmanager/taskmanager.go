@@ -43,6 +43,7 @@ func (tm *TaskManager) AddTask(title, description string) (Task, error) {
 	}
 	var task Task = Task{tm.nextID, title, description, false, time.Now()}
 	tm.tasks[tm.nextID] = task
+	tm.nextID++
 	return task, nil
 }
 
@@ -58,6 +59,7 @@ func (tm *TaskManager) UpdateTask(id int, title, description string, done bool) 
 		task.Title = title
 		task.Description = description
 		task.Done = done
+		tm.tasks[id] = task
 
 		return nil
 	}
@@ -69,8 +71,8 @@ func (tm *TaskManager) DeleteTask(id int) error {
 	if id < 0 {
 		return ErrTaskNotFound
 	}
-	if task, ok := tm.tasks[id]; ok {
-		delete(tm.tasks, task.ID)
+	if _, ok := tm.tasks[id]; ok {
+		delete(tm.tasks, id)
 		return nil
 	}
 	return ErrTaskNotFound
@@ -90,9 +92,9 @@ func (tm *TaskManager) GetTask(id int) (Task, error) {
 // ListTasks returns all tasks, optionally filtered by done status, returns an empty slice if no tasks are found
 func (tm *TaskManager) ListTasks(filterDone *bool) []Task {
 	var doneTasks []Task = make([]Task, 0)
-	for id, task := range tm.tasks {
-		if task.Done == *filterDone {
-			doneTasks[id] = task
+	for _, task := range tm.tasks {
+		if filterDone == nil || task.Done == *filterDone {
+			doneTasks = append(doneTasks, task)
 		}
 	}
 	return doneTasks

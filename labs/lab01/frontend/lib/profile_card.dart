@@ -26,12 +26,13 @@ class ProfileCard extends StatelessWidget {
             CircleAvatar(
               radius: 50,
               backgroundImage: avatarUrl != null ? NetworkImage(avatarUrl!) : null,
-              child: avatarUrl != null ? null : Text(name[0].toUpperCase())
+              child: avatarUrl != null ? null : 
+              Text(name.isEmpty ? "" : name[0].toUpperCase())
             ),
             
             const SizedBox(height: 16),
             Text(
-              name,
+              name.isEmpty ? '?' : name,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24

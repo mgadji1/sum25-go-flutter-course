@@ -64,10 +64,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     hintText: 'Enter your name',
                   ),
                   validator: (value) {
-                    if (value != null && value != "") {
+                    if (value != null && value.isNotEmpty) {
                       return null;
                     }
-                    // TODO: validate if value is not null or empty and return 'Please enter your name'
                     return "Please enter your name";
                   },
                 ),
@@ -80,7 +79,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                     hintText: 'Enter your email',
                   ),
                   validator: (value) {
-                    if (value != null && value != "" && isEmailValid(value)) {
+                    if (value != null && value.isNotEmpty && isEmailValid(value)) {
                       return null;
                     }
                     return "Please enter a valid email";
@@ -96,7 +95,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                   ),
                   obscureText: true,
                   validator: (value) {
-                    if (value != null && value != "" && value.length >= 6) {
+                    if (value != null && value.isNotEmpty && value.length >= 6) {
                       return null;
                     }
                     return "Password must be at least 6 characters";

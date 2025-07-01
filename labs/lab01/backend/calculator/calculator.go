@@ -42,6 +42,6 @@ func StringToFloat(s string) (float64, error) {
 
 // FloatToString converts a float64 to string with specified precision
 func FloatToString(f float64, precision int) string {
-	var result = strconv.FormatFloat(f, 'f', 4, 64)
+	var result = strconv.FormatFloat(f, 'f', precision, 64)
 	return result
 }

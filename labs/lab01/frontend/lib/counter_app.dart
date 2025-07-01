@@ -52,12 +52,12 @@ class _CounterAppState extends State<CounterApp> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
+                FloatingActionButton(
                   onPressed: _decrementCounter,
                   child: const Icon(Icons.remove)
                 ),
                 const SizedBox(width: 32),
-                ElevatedButton(
+                FloatingActionButton(
                   onPressed: _incrementCounter,
                   child: const Icon(Icons.add)
                 ),
