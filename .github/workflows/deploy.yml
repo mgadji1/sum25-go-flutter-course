@@ -2,7 +2,8 @@ name: Deploy Flutter Web to GitHub Pages
 
 on:
   push:
-    branches: [lab07-*]
+    branches:
+      - lab07-ibragimov-magomedgadzhi
       
   workflow_dispatch:
 
@@ -23,7 +24,7 @@ jobs:
         working-directory: labs/lab07/frontend
 
       - name: Build web
-        run: flutter build web
+        run: flutter build web --base-href /sum25-go-flutter-course/
         working-directory: labs/lab07/frontend
 
       - name: Deploy to GitHub Pages
